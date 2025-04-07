@@ -1,6 +1,7 @@
 # Task Manager Frontend
 
 React-based frontend for task management with Redux state management and Material UI components.
+
 Web page url: <https://d3g0ezs4umiwx9.cloudfront.net/>
 
 ## Features
