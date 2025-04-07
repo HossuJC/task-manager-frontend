@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+# Task Manager Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-based frontend for task management with Redux state management and Material UI components.
+Web page url: <https://d3g0ezs4umiwx9.cloudfront.net/>
+
+## Features
+
+- 👤 User authentication (login/register)
+- 📋 Task management (CRUD operations)
+- 📊 Task statistics visualization
+- 🔒 Protected routes
+- 🎨 Material UI components
+- 📱 Responsive design
+- 🧪 Comprehensive testing
+- 🔄 Redux state management
+- � Docker ready
+
+## Tech Stack
+
+| Category       | Technologies                          |
+|----------------|---------------------------------------|
+| Framework      | React 19                              |
+| State Management | Redux Toolkit, React-Redux           |
+| UI Library     | Material UI (MUI)                     |
+| Routing        | React Router DOM v7                   |
+| HTTP Client    | Axios                                 |
+| Charts         | Recharts                              |
+| Testing        | Jest, React Testing Library          |
+
+## Project Structure
+```
+task-manager-frontend/
+├── src/
+│ ├── api/ # API configuration
+│ ├── components/ # Reusable components
+│ │ └── tests/ # Component tests
+│ ├── pages/ # Page components
+│ ├── redux/ # Redux store and slices
+│ │ └── slices/ # Redux state slices
+│ │ └── tests/ # Redux tests
+│ ├── routes/ # Route components
+│ ├── App.js # Main app component
+│ └── index.js # Entry point
+├── .env.development # Dev environment vars
+├── .env.production # Prod environment vars
+└── config files # Build/config files
+```
+
+## Key Components
+
+| Component       | Description                          |
+|-----------------|--------------------------------------|
+| `TaskList`     | Displays list of tasks               |
+| `TaskCard`     | Individual task card                 |
+| `TaskForm`     | Form for creating/editing tasks      |
+| `TaskChart`    | Visualizes task statistics           |
+| `ProtectedRoute`| Auth-protected route wrapper         |
+| `authSlice`    | Redux slice for auth state           |
+| `tasksSlice`   | Redux slice for tasks state          |
+
+## Setup
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm (v9+ recommended)
+- Backend API running (see backend README)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-repo/task-manager-frontend.git
+cd task-manager-frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create environment files:
+- .env.development:
+```env
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_ENV=development
+```
+- .env.production:
+```env
+REACT_APP_API_URL=https://j5s3m0dla9.execute-api.us-east-1.amazonaws.com/dev
+REACT_APP_ENV=production
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Script	| Description |
+|-------|----------------|
+| start | Runs app in development mode |
+| build | Builds for production |
+| serve | Serves production build locally |
+| test | Runs tests |
+| eject | Ejects from create-react-app |
 
-### `npm start`
+## Running the App
+### Development
+```bash
+npm start
+```
+Open http://localhost:3000 in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Development with production API
+```bash
+npm run serve
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### With Docker
+```bash
+docker-compose up --build
+```
 
-### `npm test`
+### Testing
+Run all tests:
+```bash
+npm test
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run specific test:
+```bash
+npm test src/components/__tests__/TaskList.test.js
+```
 
-### `npm run build`
+### Environment Variables
+| Variable	Required	Description |
+|-------|----------------|
+| REACT_APP_API_URL | Yes | Backend API base URL |
+| REACT_APP_ENV | No | Environment (dev/prod) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Connecting to Backend (local development)
+Ensure your backend is running and update REACT_APP_API_URL in your environment files to match your backend URL.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Project Structure
+```
+task-manager-frontend/
+├── src/
+│ ├── api/ # API configuration
+│ ├── components/ # Reusable components
+│ │ └── tests/ # Component tests
+│ ├── pages/ # Page components
+│ ├── redux/ # Redux store and slices
+│ │ └── slices/ # Redux state slices
+│ │ └── tests/ # Redux tests
+│ ├── routes/ # Route components
+│ ├── App.js # Main app component
+│ └── index.js # Entry point
+├── .env.development # Dev environment vars
+├── .env.production # Prod environment vars
+└── config files # Build/config files
+```
